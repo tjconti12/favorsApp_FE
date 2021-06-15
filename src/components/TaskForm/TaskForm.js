@@ -12,7 +12,7 @@ const TaskForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log(`type: ${type}, date: ${date}, details: ${details}`)
-        history.push('/')
+        history.push(`/${type}`)
     }
 
     return (
