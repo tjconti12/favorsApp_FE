@@ -1,7 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useEffect, useState, useHistory } from "react";
 import "./Category.css";
 const Categories = (props) => {
+  const [category, setCategory] = useState({});
+  const history = useHistory;
+  
+  function checkCategory(categoryName) {
+    const category = tasks.filter((task) => {
+      task.category === categoryName;
+    });
+    return setCategory(category);
+  }
+  useEffect(() => {
+    const fetchCategories = async () => {
+      const category = await getCategory();
+    };
+    checkCategory(props.type);
+  }, []);
+
   return (
     <div>
       <h1>{props.categoryName}</h1>
