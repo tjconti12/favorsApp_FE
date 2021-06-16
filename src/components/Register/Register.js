@@ -20,6 +20,17 @@ const Register = () => {
     axios.post(url, data).then((res) => setRedirect(true));
   };
 
+  const profileIcons = {
+    "duck": "https://i.imgur.com/qhET4ZS.png",
+    "fox": "https://i.imgur.com/I9mE8md.png",
+    "dog": "https://i.imgur.com/XtDL5Ku.png",
+    "elephant": "https://i.imgur.com/9pVLnkz.png",
+    "giraffe": "https://i.imgur.com/Do0e957.png",
+    "lion": "https://i.imgur.com/gMZXcAT.png",
+    "cat": "https://i.imgur.com/VT1EKbo.png",
+    "owl": "https://i.imgur.com/aMVMOhg.png"
+}
+
   if (redirect) {
     return <Redirect to="/" />;
   }
