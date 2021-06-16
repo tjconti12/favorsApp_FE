@@ -1,7 +1,12 @@
+import { useState } from 'react'
 import axios from 'axios'
 import ENDPOINT from '../../config/config'
 
 const Login = () => {
+	// const [username, setUsername] = useState('')
+	// const [password, setPassword] = useState('')
+	// const [jwt, setJwt] = useState('')
+
 	const url = ENDPOINT + '/users/login'
 
 	const handleSubmit = (e) => {
@@ -12,8 +17,7 @@ const Login = () => {
 			password: e.target.password.value,
 		}
 
-		axios.post(url, data).then((res) => console.log('axios', res.data))
-		// .then((res) => setTasks([...tasks, res.data]))
+		axios.post(url, data).then((res) => localStorage.setItem('token', res.data))
 	}
 
 	return (
