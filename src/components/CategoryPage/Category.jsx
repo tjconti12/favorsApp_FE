@@ -11,66 +11,12 @@ import VolunteerModal from "../VolunteerModal/VolunteerModal";
 const Categories = (props) => {
 
   const [data, setData] = useState(undefined);
+  const [selected, setSelected] = useState({});
   const [category, setCategory] = useState({});
   const [modalOpen, setModalOpen] = useState(false);
   const history = useHistory;
   const categoryIcons = [StoreIcon, ChildFriendlyIcon, DirectionsCarIcon];
-  const seedData = [
-    {
-      category: "shopping",
-      title: "Please Buy Me Milk",
-      description:
-        "I need milk from Safeway, if someone could please grab some for me today.",
-      creationDate: "6/16/2021 9:00AM",
-      dueDate: "6/16/2021 3:00PM",
-      completed: false,
-    },
-    {
-      category: "shopping",
-      title: "Please Buy Me Milk",
-      description:
-        "I need milk from Safeway, if someone could please grab some for me today.",
-      creationDate: "6/16/2021 9:00AM",
-      dueDate: "6/16/2021 3:00PM",
-      completed: false,
-    },
-    {
-      category: "cleaning",
-      title: "Clean the house",
-      description:
-        "I am looking for someone who can come clean my home twice a week.",
-      creationDate: "6/12/2021 7:00AM",
-      dueDate: "6/20/2021 5:00PM",
-      completed: false,
-    },
-    {
-      category: "caretaking",
-      title: "Can anyone babysit this Friday night?",
-      description:
-        "I need a babysitter from 5:00PM till possibly midnight! You will be compensated.",
-      creationDate: "6/16/2021 9:00AM",
-      dueDate: "6/18/2021 3:00PM",
-      completed: false,
-    },
-    {
-      category: "cleaning",
-      title: "Clean the house",
-      description:
-        "I am looking for someone who can come clean my home twice a week.",
-      creationDate: "6/12/2021 7:00AM",
-      dueDate: "6/20/2021 5:00PM",
-      completed: false,
-    },
-    {
-      category: "caretaking",
-      title: "Can anyone babysit this Friday night?",
-      description:
-        "I need a babysitter from 5:00PM till possibly midnight! You will be compensated.",
-      creationDate: "6/16/2021 9:00AM",
-      dueDate: "6/18/2021 3:00PM",
-      completed: false,
-    },
-  ];
+  
 
   const getData = async () => {
     try {
@@ -108,7 +54,7 @@ const Categories = (props) => {
 
   return (
     <div>
-      {modalOpen ? <VolunteerModal setModalOpen={setModalOpen} /> : <></>}
+      {modalOpen ? <VolunteerModal setModalOpen={setModalOpen} selected={selected} category={props.category}/> : <></>}
       <h2 className="category-name">
         <StoreIcon /> {props.category}
       </h2>
@@ -124,7 +70,10 @@ const Categories = (props) => {
 
       {data.map(task => {
         return (
-          <button onClick={() => setModalOpen(true)}>
+          <button onClick={() => {
+            setModalOpen(true)
+            setSelected(task)
+          }}>
             <div className="category">
               <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
               <div className="user-deets">
