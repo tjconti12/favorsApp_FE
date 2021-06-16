@@ -1,5 +1,4 @@
 .welcome {
-  
   font-family: Roboto serif;
   font-weight: 700;
   font-size: 20px;
@@ -9,9 +8,16 @@
   position:relative;
 }
 
+.logo {
+  position: relative;
+  top: 10px;
+  width: 60%;
+  height: 80px;
+}
+
 .form {
   position: relative;
-  top: 75px;
+  top: 125px;
 }
 
 .username {
