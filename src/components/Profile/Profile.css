@@ -1,0 +1,58 @@
+.profile-header {
+  font-family: "roboto";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#profile-username {
+  font-size: 24px;
+  font-weight: 400;
+  margin: 5px;
+}
+#gudeeds-rate {
+  background-color: rgba(0, 0, 0, 0.096);
+  border-radius: 15px;
+  padding: 5px;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "roboto";
+  margin: 0px;
+}
+#profile-bio {
+  color: rgba(0, 0, 0, 0.24);
+  font-size: 14px;
+}
+#task-words {
+  padding: 25px 162px 25px 32px;
+}
+#task-location {
+  margin-left: 25px;
+  width: 284px;
+  height: 65px;
+}
+#profile-req {
+  margin-left: 35px;
+  font-weight: 500;
+}
+.profile-request-sec {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  font-family: "roboto";
+}
+#divider {
+  width: 90%;
+}
+.prof-logout {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 12px;
+  background-color: transparent;
+  border: none;
+}
+#logout-icon {
+  font-size: 40px;
+}

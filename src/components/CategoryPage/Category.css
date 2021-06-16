@@ -1,6 +1,10 @@
 h1 {
   text-align: center;
 }
+.modal-btn {
+  background-color: transparent;
+  border: none;
+}
 .category {
   margin: 25px;
   width: 284px;
@@ -10,6 +14,7 @@ h1 {
   display: flex;
   align-items: center;
   background-color: #6200ee;
+  color: white;
 }
 .user-deets {
   display: flex;
@@ -36,6 +41,7 @@ h1 {
   font-weight: 700;
   margin: 2px;
   margin-left: 15px;
+  color: white;
 }
 .category-name {
   text-align: center;
@@ -46,6 +52,7 @@ h1 {
   margin: 2px;
   margin-left: 15px;
   text-align: left;
+  color: white;
 }
 #due-dates {
   background-color: #03dac5;
@@ -56,6 +63,7 @@ h1 {
   margin-right: 0px;
   margin-bottom: 80px;
   width: 75px;
+  color: white;
 }
 #due-dates p {
   margin: 0px;

@@ -11,7 +11,7 @@ const Schedule = () => {
       <section>
         <p className="sched-titles">My Requests</p>
         <Divider variant="middle" />
-        <Link to="/details" className="category-link">
+        <Link to="/details" className="category-link" id="profile-reqs">
           <div className="category">
             <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
             <div className="user-deets">
