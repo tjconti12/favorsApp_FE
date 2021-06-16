@@ -13,11 +13,15 @@ const TaskForm = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault()
 
+		const user = localStorage.getItem('user')
+		console.log('taskform', user)
+
 		const data = {
 			type: e.target.type.value,
 			title: e.target.title.value,
 			description: e.target.description.value,
 			dueDate: e.target.dueDate.value,
+			// createdBy: e.target.dueDate.value,
 		}
 
 		const url = ENDPOINT + '/tasks'
