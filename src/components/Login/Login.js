@@ -52,13 +52,11 @@ const Login = () => {
 						<p className={LoginStyles.createText}>OR</p>
 						<p className={LoginStyles.createText}>CREATE AN ACCOUNT</p>
 					</div>
-					<button className={LoginStyles.signup} type='submit'>SIGN UP!</button>
+					<Link to='/register'>
+						<button className={LoginStyles.signup} type='submit'>SIGN UP!</button>
+					</Link>
 				</center>
-
 			</form>
-			<Link to='/register'>
-				<button>Sign Up!</button>
-			</Link>
 		</div>
 	)
 }

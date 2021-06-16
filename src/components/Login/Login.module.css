@@ -5,12 +5,13 @@
   font-size: 20px;
   line-height: 24px;
   height: 46px;
-  
+  top: 30px;
+  position:relative;
 }
 
 .form {
   position: relative;
-  top: 53px;
+  top: 75px;
 }
 
 .username {
