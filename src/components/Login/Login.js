@@ -3,6 +3,7 @@ import { Link, Redirect } from 'react-router-dom'
 import axios from 'axios'
 import ENDPOINT from '../../config/config'
 import * as LoginStyles from './Login.module.css'
+import Logo from '../../gooddeedslogo.png'
 
 const Login = () => {
 	const [redirect, setRedirect] = useState(false)
@@ -31,7 +32,7 @@ const Login = () => {
 
 	return (
 		<div className='login-page'>
-			<h1 className={LoginStyles.welcome}>Welcome<br /> to <br />Güdeeds</h1>
+			<h1 className={LoginStyles.welcome}>Welcome<br /> to <br /><img className={LoginStyles.logo} src={Logo}></img></h1>
 			<form className={LoginStyles.form} onSubmit={handleSubmit}>
 				<center>
 					<label className={LoginStyles.username} htmlFor='username'>Username:</label>
