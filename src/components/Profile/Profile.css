@@ -45,3 +45,14 @@
 #divider {
   width: 90%;
 }
+.prof-logout {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 12px;
+  background-color: transparent;
+  border: none;
+}
+#logout-icon {
+  font-size: 40px;
+}

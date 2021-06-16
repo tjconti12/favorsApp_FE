@@ -5,7 +5,9 @@ import { Avatar } from "@material-ui/core";
 import * as HomePageStyles from "../HomePage/HomePage.module.css";
 import { makeStyles } from "@material-ui/core/styles";
 import AddIcon from "@material-ui/icons/Add";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import "./Profile.css";
+
 const Profile = () => {
   const useStyles = makeStyles((theme) => ({
     root: {
@@ -26,12 +28,14 @@ const Profile = () => {
 
   const classes = useStyles();
 
-
-
-
-  
   return (
     <div>
+      <button className="prof-logout">
+        <ExitToAppIcon id="logout-icon" />
+        <br />
+        <span>LOG OUT</span>
+      </button>
+
       <section className="profile-header">
         <Avatar className={classes.large}>S</Avatar>
         <p id="profile-username">Sabrina</p>
