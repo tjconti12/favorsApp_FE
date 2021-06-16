@@ -13,7 +13,7 @@ const Schedule = () => {
   const getData = async () => {
     try {
       const response = await fetch(
-        "https://gudeeds-database.herokuapp.com/tasks"
+        "https://gudeeds-database.herokuapp.com/users"
       );
       const data = await response.json();
       setData(data);
@@ -24,11 +24,11 @@ const Schedule = () => {
 
   function grabUserData() {
     let yourReqs = [];
-    data.map((task) => {
-      if (task.createdBy === user.username) {
-        yourReqs.push(task);
+    data.map((users) => {
+      if (users.usesrname === user.username) {
+        setUserReqs(users.tasks);
+        setUserOffers(users.offers);
       }
-      setUserReqs(yourReqs);
     });
   }
 
@@ -40,7 +40,7 @@ const Schedule = () => {
   return (
     <div>
       {data ? console.log(data) : console.log("no data?")}
-      {console.log(userReqs.length)}
+
       <p className="category-name">My Schedule</p>
       <section>
         <p className="sched-titles">My Requests</p>
