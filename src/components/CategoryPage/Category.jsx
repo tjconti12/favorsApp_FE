@@ -12,12 +12,10 @@ const Categories = (props) => {
   const [data, setData] = useState(undefined);
   const [category, setCategory] = useState([]);
   const [selected, setSelected] = useState({});
- 
 
   const [modalOpen, setModalOpen] = useState(false);
   const history = useHistory;
   const categoryIcons = [StoreIcon, ChildFriendlyIcon, DirectionsCarIcon];
-  
 
   const getData = async () => {
     try {
@@ -49,7 +47,15 @@ const Categories = (props) => {
 
   return (
     <div>
-      {modalOpen ? <VolunteerModal setModalOpen={setModalOpen} selected={selected} category={props.category}/> : <></>}
+      {modalOpen ? (
+        <VolunteerModal
+          setModalOpen={setModalOpen}
+          selected={selected}
+          category={props.category}
+        />
+      ) : (
+        <></>
+      )}
       <h2 className="category-name">
         <StoreIcon /> {props.category}
       </h2>
@@ -57,10 +63,13 @@ const Categories = (props) => {
       {category.length !== 0 ? (
         category.map((task) => {
           return (
-            <button className="modal-btn" onClick={() => {
-              setModalOpen(true)
-              setSelected(task) 
-            }}>
+            <button
+              className="modal-btn"
+              onClick={() => {
+                setModalOpen(true);
+                setSelected(task);
+              }}
+            >
               <div className="category">
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
                 <div className="user-deets">

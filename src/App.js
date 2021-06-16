@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 import { Route, Switch } from "react-router-dom";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
@@ -10,11 +10,8 @@ import VolunteerModal from "./components/VolunteerModal/VolunteerModal";
 import Profile from "./components/Profile/Profile";
 import Schedule from "./components/Schedule/Schedule";
 
-
 function App() {
   const [addModalOpen, setAddModalOpen] = useState(false);
-
-
 
   return (
     <div className="App">
@@ -53,8 +50,8 @@ function App() {
           <Details />
         </Route> */}
       </Switch>
-      <Footer setAddModalOpen={setAddModalOpen}/>
-      {addModalOpen ? <TaskForm setAddModalOpen={setAddModalOpen}/> : <></>}
+      <Footer setAddModalOpen={setAddModalOpen} />
+      {addModalOpen ? <TaskForm setAddModalOpen={setAddModalOpen} /> : <></>}
     </div>
   );
 }
