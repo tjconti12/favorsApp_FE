@@ -6,9 +6,25 @@ import { Avatar } from "@material-ui/core";
 import "./Category.css";
 import VolunteerModal from "../VolunteerModal/VolunteerModal";
 const Categories = (props) => {
+
+  const [data, setData] = useState(undefined);
   const [category, setCategory] = useState({});
   const [modalOpen, setModalOpen] = useState(false);
   const history = useHistory;
+
+  const getData = async () => {
+    try {
+      const response = await fetch('https://gudeeds-database.herokuapp.com/tasks')
+      const data = await response.json();
+      setData(data);
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  useEffect(() => {
+    getData()
+  }, [])
 
   // function checkCategory(tasks) {
   //   const category = tasks.filter((task) => {
@@ -23,6 +39,12 @@ const Categories = (props) => {
   //};
   //checkCategory(props.tasks);
   //}, []);
+  
+  if (data === undefined) {
+    return (
+      <h1>Loading</h1>
+    )
+  }
 
   return (
     <div>
@@ -38,19 +60,24 @@ const Categories = (props) => {
           </div>
         </Link>
       ))} */}
+      
 
-      <button onClick={() => setModalOpen(true)}>
-        <div className="category">
-          <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-          <div className="user-deets">
-            <p id="user-name">userName</p>
-            <p className="task-title"> Task Title</p>
-          </div>
-          <div id="due-dates">
-            <p>due date</p>
-          </div>
-        </div>
-      </button>
+      {data.map(task => {
+        return (
+          <button onClick={() => setModalOpen(true)}>
+            <div className="category">
+              <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+              <div className="user-deets">
+                <p id="user-name">{task.createdBy}</p>
+                <p className="task-title">{task.title}</p>
+              </div>
+              <div id="due-dates">
+                <p>{task.dueDate.split('T')[0]}</p>
+              </div>
+            </div>
+          </button>
+        )
+      })}
       
     </div>
   );
