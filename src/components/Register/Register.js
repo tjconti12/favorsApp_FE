@@ -1,13 +1,27 @@
+import { useState } from 'react'
+import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import ENDPOINT from '../../config/config'
 
-import * as TaskFormStyles from './TaskForm.module.css'
-
 const Register = () => {
-	const url = ENDPOINT + '/users/register'
+	const [redirect, setRedirect] = useState(false)
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
+
+		const data = {
+			profileIcon: e.target.profile.value,
+			username: e.target.username.value,
+			password: e.target.password.value,
+		}
+
+		const url = ENDPOINT + '/users/register'
+
+		axios.post(url, data).then((res) => setRedirect(true))
+	}
+
+	if (redirect) {
+		return <Redirect to='/login' />
 	}
 
 	return (
@@ -17,11 +31,8 @@ const Register = () => {
 			</center>
 			<form onSubmit={handleSubmit}>
 				<center>
-					<label htmlFor='profile-pic'>Profile Pic</label>
-					<select
-						id='profile-pic'
-						className={TaskFormStyles.select}
-						name='profile-pic'>
+					<label htmlFor='profile-icon'>Profile Icon</label>
+					<select id='profile' name='profile-icon'>
 						<option value='sample1'>Sample1</option>
 						<option value='sample2'>Sample2</option>
 						<option value='sample3'>Sample3</option>
