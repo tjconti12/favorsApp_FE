@@ -1,0 +1,61 @@
+.welcome {
+  
+  font-family: Roboto serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  height: 46px;
+  
+}
+
+.form {
+  position: relative;
+  top: 53px;
+}
+
+.username {
+  
+}
+
+.createText {
+  font-family: Roboto serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 1.25px;
+  height: 16px;
+  position: relative;
+  top: 53px;
+}
+
+.login {
+  color: #FFF;
+  font-size: 14px;
+  font-family: Roboto serif;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+  width: 90px;
+  height: 36px;
+  border-radius: 4px;
+  background: #6200EE;
+  position: relative;
+  top: 53px;
+
+}
+
+.signup {
+  color: #FFF;
+  font-size: 14px;
+  font-family: Roboto serif;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 1.25px;
+  width: 90px;
+  height: 36px;
+  border-radius: 4px;
+  background-color: #6200EE;
+  position: relative;
+  top: 106px;
+}

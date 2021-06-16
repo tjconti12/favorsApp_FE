@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 import ENDPOINT from '../../config/config'
+import * as LoginStyles from './Login.module.css'
 
 const Login = () => {
 	// const [username, setUsername] = useState('')
@@ -22,12 +23,10 @@ const Login = () => {
 
 	return (
 		<div className='login-page'>
-			<center>
-				<h1>Login to Profile</h1>
-			</center>
-			<form onSubmit={handleSubmit}>
+			<h1 className={LoginStyles.welcome}>Welcome<br /> to <br />Güdeeds</h1>
+			<form className={LoginStyles.form} onSubmit={handleSubmit}>
 				<center>
-					<label htmlFor='username'>Username:</label>
+					<label className={LoginStyles.username} htmlFor='username'>Username:</label>
 					<input id='username' className='login-field' type='text' />
 				</center>
 				<br />
@@ -37,8 +36,17 @@ const Login = () => {
 				</center>
 				<center>
 					<br />
-					<button type='submit'>Login</button>
+					<button className={LoginStyles.login} type='submit'>Login</button>
 				</center>
+				<center>
+					<br />
+					<div>
+						<p className={LoginStyles.createText}>OR</p>
+						<p className={LoginStyles.createText}>CREATE AN ACCOUNT</p>
+					</div>
+					<button className={LoginStyles.signup} type='submit'>SIGN UP!</button>
+				</center>
+
 			</form>
 		</div>
 	)

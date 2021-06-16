@@ -11,7 +11,6 @@ import VolunteerModal from './components/VolunteerModal/VolunteerModal'
 function App() {
 	return (
 		<div className='App'>
-			<h1>Güdeeds</h1>
 			<Switch>
 				<Route path='/home'>
 					<HomePage />
