@@ -1,13 +1,11 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import axios from 'axios'
 import ENDPOINT from '../../config/config'
 
 const Login = () => {
-	// const [username, setUsername] = useState('')
-	// const [password, setPassword] = useState('')
-	// const [jwt, setJwt] = useState('')
-
+	const [redirect, setRedirect] = useState(false)
+    
 	const url = ENDPOINT + '/users/login'
 
 	const handleSubmit = (e) => {
@@ -18,7 +16,14 @@ const Login = () => {
 			password: e.target.password.value,
 		}
 
-		axios.post(url, data).then((res) => localStorage.setItem('token', res.data))
+		axios
+			.post(url, data)
+			.then((res) => localStorage.setItem('user', res.data))
+			.then(() => setRedirect(true))
+	}
+
+	if (redirect) {
+		return <Redirect to={`/add`} />
 	}
 
 	return (
