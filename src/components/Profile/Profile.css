@@ -56,6 +56,11 @@
 #logout-icon {
   font-size: 40px;
 }
+
+#due-dates {
+  min-width: fit-content;
+  padding: 2px 5px;
+
 .prof-logout {
   cursor: pointer;
 }

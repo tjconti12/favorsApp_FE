@@ -1,19 +1,19 @@
-import { useState } from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { useState } from "react";
+import { Route, Switch } from "react-router-dom";
 
-import Login from './components/Login/Login'
-import Register from './components/Register/Register'
-import HomePage from './components/HomePage/HomePage'
-import TaskForm from './components/TaskForm/TaskForm'
-import Category from './components/CategoryPage/Category'
-import Footer from './components/Footer/Footer'
-import VolunteerModal from './components/VolunteerModal/VolunteerModal'
-import Profile from './components/Profile/Profile'
-import Schedule from './components/Schedule/Schedule'
+import Login from "./components/Login/Login";
+import Register from "./components/Register/Register";
+import HomePage from "./components/HomePage/HomePage";
+import TaskForm from "./components/TaskForm/TaskForm";
+import Category from "./components/CategoryPage/Category";
+import Footer from "./components/Footer/Footer";
+import VolunteerModal from "./components/VolunteerModal/VolunteerModal";
+import Profile from "./components/Profile/Profile";
+import Schedule from "./components/Schedule/Schedule";
 
 function App() {
-	const [loggedIn, setLoggedIn] = useState(false)
-	const [addModalOpen, setAddModalOpen] = useState(false)
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [addModalOpen, setAddModalOpen] = useState(false);
 
 	return (
 		<div className='App'>
@@ -48,15 +48,15 @@ function App() {
 				{/* <Route exact path="/details">
           <Details />
         </Route> */}
-			</Switch>
-			<Footer setAddModalOpen={setAddModalOpen} />
-			{addModalOpen ? (
-				<TaskForm loggedIn={loggedIn} setAddModalOpen={setAddModalOpen} />
-			) : (
-				<></>
-			)}
-		</div>
-	)
+      </Switch>
+      <Footer setAddModalOpen={setAddModalOpen} />
+      {addModalOpen ? (
+        <TaskForm loggedIn={loggedIn} setAddModalOpen={setAddModalOpen} />
+      ) : (
+        <></>
+      )}
+    </div>
+  );
 }
 
-export default App
+export default App;
