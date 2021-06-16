@@ -1,21 +1,20 @@
-import { useState, Link } from 'react';
 import { createMuiTheme, makeStyles, MuiThemeProvider } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import HomeIcon from '@material-ui/icons/Home';
+import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import DynamicFeedIcon from '@material-ui/icons/DynamicFeed';
-import AccountBoxIcon from '@material-ui/icons/AccountBox';
+import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
 import AddIcon from '@material-ui/icons/Add';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import * as FooterStyles from './Footer.module.css';
+// import * as FooterStyles from './Footer.module.css';
+import Fab from '@material-ui/core/Fab';
+import { Link as RouterLink } from 'react-router-dom';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
+      backgroundColor: "#6200EE",
+
       flexGrow: 1,
     },
     menuButton: {
@@ -23,6 +22,14 @@ const useStyles = makeStyles((theme) => ({
     },
     title: {
       flexGrow: 1,
+    },
+    taskButton: {
+      transform: 'translate(530%, -47%)',
+      position: 'absolute',
+      backgroundColor: '#03DAC5',
+    },
+    bar: {
+        position: 'fixed',
     },
   }));
 
@@ -39,27 +46,40 @@ const useStyles = makeStyles((theme) => ({
   })
 
 
+
 const Footer = () => {
     const classes = useStyles();
-    // const [value, setValue] = useState(0);
-    // <Link to="/">Home</Link>
-    // <Link to="/schedule">My Schedule</Link>
-    // <Link to="/add">Add Task</Link>
+
 
     return (
         <MuiThemeProvider theme={theme}>
-            <AppBar position="static">
-                <Toolbar>
-                    <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-                        <HomeIcon />
+            <AppBar position="static" className={classes.bar}>
+                <Toolbar className={classes.root}>
+                    <IconButton 
+                        edge="start" 
+                        className={classes.menuButton} 
+                        color="inherit" 
+                        aria-label="menu" 
+                        component={RouterLink} to="/">
+                        <HomeOutlinedIcon />
                     </IconButton>
-                    <IconButton>
+                    <IconButton 
+                        className={classes.menuButton} 
+                        color="inherit"
+                        component={RouterLink} to="/schedule">
                         <DynamicFeedIcon />
                     </IconButton>
-                    <IconButton>
-
+                    <IconButton 
+                        className={classes.menuButton} 
+                        color="inherit"
+                        component={RouterLink} to="/profile">
+                        <PersonOutlineOutlinedIcon />
                     </IconButton>
-
+                    <Fab 
+                        className={classes.taskButton}
+                        component={RouterLink} to="/add">
+                        <AddIcon />
+                    </Fab>
                 </Toolbar>
             </AppBar>
         </MuiThemeProvider>
@@ -67,18 +87,3 @@ const Footer = () => {
 }
 
 export default Footer
-
-
-
-
-
-
-// export default function ButtonAppBar() {
-//   const classes = useStyles();
-
-//   return (
-//     <div className={classes.root}>
-
-//     </div>
-//   );
-// }
