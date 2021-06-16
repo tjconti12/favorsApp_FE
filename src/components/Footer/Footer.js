@@ -61,7 +61,7 @@ const Footer = () => {
                         className={classes.menuButton} 
                         color="inherit" 
                         aria-label="menu" 
-                        component={RouterLink} to="/">
+                        component={RouterLink} to="/Home">
                         <HomeOutlinedIcon />
                     </IconButton>
                     <IconButton 
