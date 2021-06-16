@@ -49,9 +49,9 @@ const Login = () => {
 				</center>
 				<center>
 					<br />
-					<div>
-						<p className={LoginStyles.createText}>OR</p>
-						<p className={LoginStyles.createText}>CREATE AN ACCOUNT</p>
+					<div className={LoginStyles.createText}>
+						<p className={LoginStyles.or}>OR</p>
+						<p >CREATE AN ACCOUNT</p>
 					</div>
 					<Link to='/register'>
 						<button className={LoginStyles.signup} type='submit'>SIGN UP!</button>

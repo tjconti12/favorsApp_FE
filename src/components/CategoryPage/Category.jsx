@@ -57,7 +57,10 @@ const Categories = (props) => {
       {category.length !== 0 ? (
         category.map((task) => {
           return (
-            <button className="modal-btn" onClick={() => setModalOpen(true)}>
+            <button className="modal-btn" onClick={() => {
+              setModalOpen(true)
+              setSelected(task) 
+            }}>
               <div className="category">
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
                 <div className="user-deets">
