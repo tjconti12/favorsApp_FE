@@ -4,8 +4,10 @@ import { useEffect, useState, useHistory } from "react";
 import StoreIcon from "@material-ui/icons/Store";
 import { Avatar } from "@material-ui/core";
 import "./Category.css";
+import VolunteerModal from "../VolunteerModal/VolunteerModal";
 const Categories = (props) => {
   const [category, setCategory] = useState({});
+  const [modalOpen, setModalOpen] = useState(false);
   const history = useHistory;
 
   // function checkCategory(tasks) {
@@ -24,6 +26,7 @@ const Categories = (props) => {
 
   return (
     <div>
+      {modalOpen ? <VolunteerModal setModalOpen={setModalOpen}/> : <></>}
       <h2 className="category-name">
         <StoreIcon /> {props.category}
       </h2>
@@ -36,7 +39,7 @@ const Categories = (props) => {
         </Link>
       ))} */}
 
-      <Link to="/details" className="category-link">
+      <button onClick={() => setModalOpen(true)}>
         <div className="category">
           <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
           <div className="user-deets">
@@ -47,7 +50,8 @@ const Categories = (props) => {
             <p>due date</p>
           </div>
         </div>
-      </Link>
+      </button>
+      
     </div>
   );
 };
