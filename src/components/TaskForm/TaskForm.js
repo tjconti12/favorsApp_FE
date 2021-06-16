@@ -1,17 +1,14 @@
 import { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import ENDPOINT from '../../config/config'
 
 import * as TaskFormStyles from './TaskForm.module.css'
 
 const TaskForm = () => {
-	// const [type, setType] = useState('shopping')
-	// const [date, setDate] = useState('2021-06-15T10:30')
-	// const [details, setDetails] = useState('')
+	const [type, setType] = useState('shopping')
+	const [redirect, setRedirect] = useState(false)
 	const [tasks, setTasks] = useState([])
-
-	let history = useHistory()
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
@@ -25,8 +22,14 @@ const TaskForm = () => {
 
 		const url = ENDPOINT + '/tasks'
 
-		axios.post(url, data).then((res) => setTasks([...tasks, res.data]))
-		// .then((res) => history.push(`/${tasks.type}`))
+		axios
+			.post(url, data)
+			.then((res) => setTasks([...tasks, res.data]))
+			.then((res) => setRedirect(true))
+	}
+
+	if (redirect) {
+		return <Redirect to={`/${type}`} />
 	}
 
 	return (
@@ -38,8 +41,8 @@ const TaskForm = () => {
 					<select
 						name='type'
 						id='type'
-						defaultValue={'shopping'}
-						className={TaskFormStyles.select}>
+						className={TaskFormStyles.select}
+						onChange={(e) => setType(e.target.value)}>
 						<option value='shopping'>Shopping</option>
 						<option value='caretaking'>Caretaking</option>
 						<option value='cleaning'>Cleaning</option>
