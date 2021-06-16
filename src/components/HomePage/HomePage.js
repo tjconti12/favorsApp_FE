@@ -6,7 +6,7 @@ import ChildFriendlyIcon from '@material-ui/icons/ChildFriendly';
 import BrushIcon from '@material-ui/icons/Brush';
 import DirectionsCarIcon from '@material-ui/icons/DirectionsCar';
 
-const HomePage = () => {
+const HomePage = ({ setAddModalOpen }) => {
     return (
         <div className={HomePageStyles.container}>
             <Link to="/schedule" className={HomePageStyles.link}>
@@ -14,9 +14,9 @@ const HomePage = () => {
             </Link>
             <div>
                 <h2 className={HomePageStyles.h2}>Ask for help</h2>
-                <Link to="/add" className={HomePageStyles.link}>
+                <div className={HomePageStyles.link} onClick={() => setAddModalOpen(true)}>
                     <div className={HomePageStyles.teal}><AddIcon/><span>ADD A TASK</span></div>
-                </Link>
+                </div>
             </div>
             <div>
                 <h2 className={HomePageStyles.h2}>Offer help</h2>
