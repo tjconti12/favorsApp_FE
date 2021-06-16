@@ -10,6 +10,8 @@ const TaskForm = () => {
   const [redirect, setRedirect] = useState(false);
   const [tasks, setTasks] = useState([]);
 
+  const user = JSON.parse(window.localStorage.getItem("user"));
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -18,6 +20,7 @@ const TaskForm = () => {
       title: e.target.title.value,
       description: e.target.description.value,
       dueDate: e.target.dueDate.value,
+      createdBy: user.username,
     };
 
     const url = ENDPOINT + "/tasks";

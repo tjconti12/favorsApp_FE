@@ -6,19 +6,20 @@ import TaskForm from "./components/TaskForm/TaskForm";
 import Category from "./components/CategoryPage/Category";
 import Footer from "./components/Footer/Footer";
 import VolunteerModal from "./components/VolunteerModal/VolunteerModal";
-
+import Profile from "./components/Profile/Profile";
+import Schedule from "./components/Schedule/Schedule";
 function App() {
   return (
     <div className="App">
       <h1>Güdeeds</h1>
       <Switch>
-        <Route path="/home">
+        <Route exact path="/home">
           <HomePage />
         </Route>
         <Route exact path="/">
           <Login />
         </Route>
-        <Route exact path="/register">
+        <Route path="/register">
           <Register />
         </Route>
         <Route exact path="/add">
@@ -30,6 +31,15 @@ function App() {
         <Route exact path="/caretaking">
           <Category category="caretaking" />
         </Route>
+        <Route exact path="/profile">
+          <Profile />
+        </Route>
+        <Route exact path="/schedule">
+          <Schedule />
+        </Route>
+        {/* <Route exact path="/details">
+          <Details />
+        </Route> */}
       </Switch>
       <Footer />
     </div>
