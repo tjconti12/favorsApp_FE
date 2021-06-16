@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import ENDPOINT from '../../config/config'
 
@@ -40,6 +41,9 @@ const Login = () => {
 					<button type='submit'>Login</button>
 				</center>
 			</form>
+			<Link to='/register'>
+				<button>Sign Up!</button>
+			</Link>
 		</div>
 	)
 }
