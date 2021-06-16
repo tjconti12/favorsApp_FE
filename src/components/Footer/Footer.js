@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
     },
     bar: {
         position: 'fixed',
+        bottom: '0',
     },
   }));
 
