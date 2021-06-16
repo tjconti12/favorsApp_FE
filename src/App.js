@@ -11,7 +11,6 @@ import Schedule from "./components/Schedule/Schedule";
 function App() {
   return (
     <div className="App">
-      <h1>Güdeeds</h1>
       <Switch>
         <Route exact path="/home">
           <HomePage />
