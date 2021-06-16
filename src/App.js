@@ -1,12 +1,15 @@
+
 import { Link, Route, Switch } from "react-router-dom";
 import HomePage from "./components/HomePage/HomePage";
 import TaskForm from "./components/TaskForm/TaskForm";
 import Category from "./components/CategoryPage/Category";
 import Details from "./components/DetailsPage/Details";
+import Footer from './components/Footer/Footer';
+
 function App() {
   return (
     <div className="App">
-      <h1>Favors App</h1>
+      <h1>Güdeeds</h1>
       <Link to="/">Home</Link>
       <Link to="/schedule">My Schedule</Link>
       <Link to="/add">Add Task</Link>
@@ -27,6 +30,7 @@ function App() {
           <Details />
         </Route>
       </Switch>
+      <Footer />
     </div>
   );
 }
