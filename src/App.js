@@ -5,6 +5,7 @@ import TaskForm from "./components/TaskForm/TaskForm";
 import Category from "./components/CategoryPage/Category";
 import Details from "./components/DetailsPage/Details";
 import Footer from './components/Footer/Footer';
+import VolunteerModal from "./components/VolunteerModal/VolunteerModal";
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Details />
         </Route>
       </Switch>
+      <VolunteerModal />
       <Footer />
     </div>
   );
