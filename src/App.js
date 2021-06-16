@@ -13,10 +13,10 @@ function App() {
 		<div className='App'>
 			<h1>Güdeeds</h1>
 			<Switch>
-				<Route exact path='/'>
+				<Route path='/home'>
 					<HomePage />
 				</Route>
-				<Route path='/login'>
+				<Route path='/'>
 					<Login />
 				</Route>
 				<Route path='/register'>
@@ -35,7 +35,6 @@ function App() {
 					<Details />
 				</Route>
 			</Switch>
-			<VolunteerModal />
 			<Footer />
 		</div>
 	)
