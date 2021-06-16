@@ -30,9 +30,6 @@ function App() {
 				<Route exact path='/caretaking'>
 					<Category category='caretaking' />
 				</Route>
-				<Route exact path='/details'>
-					<Details />
-				</Route>
 			</Switch>
 			<Footer />
 		</div>
