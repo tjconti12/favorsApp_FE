@@ -30,6 +30,12 @@ function App() {
         <Route exact path="/caretaking">
           <Category category="caretaking" />
         </Route>
+        <Route exact path="/cleaning">
+          <Category category="cleaning" />
+        </Route>
+        <Route exact path="/transportation">
+          <Category category="transportation" />
+        </Route>
         <Route exact path="/profile">
           <Profile />
         </Route>
