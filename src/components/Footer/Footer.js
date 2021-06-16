@@ -52,43 +52,39 @@ const theme = createMuiTheme({
 const Footer = () => {
   const classes = useStyles();
 
-  return (
-    <MuiThemeProvider theme={theme}>
-      <AppBar position="static" className={classes.bar}>
-        <Toolbar className={classes.root}>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-            component={RouterLink}
-            to="/"
-          >
-            <HomeOutlinedIcon />
-          </IconButton>
-          <IconButton
-            className={classes.menuButton}
-            color="inherit"
-            component={RouterLink}
-            to="/schedule"
-          >
-            <DynamicFeedIcon />
-          </IconButton>
-          <IconButton
-            className={classes.menuButton}
-            color="inherit"
-            component={RouterLink}
-            to="/profile"
-          >
-            <PersonOutlineOutlinedIcon />
-          </IconButton>
-          <Fab className={classes.taskButton} component={RouterLink} to="/add">
-            <AddIcon />
-          </Fab>
-        </Toolbar>
-      </AppBar>
-    </MuiThemeProvider>
-  );
-};
+    return (
+        <MuiThemeProvider theme={theme}>
+            <AppBar position="static" className={classes.bar}>
+                <Toolbar className={classes.root}>
+                    <IconButton 
+                        edge="start" 
+                        className={classes.menuButton} 
+                        color="inherit" 
+                        aria-label="menu" 
+                        component={RouterLink} to="/Home">
+                        <HomeOutlinedIcon />
+                    </IconButton>
+                    <IconButton 
+                        className={classes.menuButton} 
+                        color="inherit"
+                        component={RouterLink} to="/schedule">
+                        <DynamicFeedIcon />
+                    </IconButton>
+                    <IconButton 
+                        className={classes.menuButton} 
+                        color="inherit"
+                        component={RouterLink} to="/profile">
+                        <PersonOutlineOutlinedIcon />
+                    </IconButton>
+                    <Fab 
+                        className={classes.taskButton}
+                        component={RouterLink} to="/add">
+                        <AddIcon />
+                    </Fab>
+                </Toolbar>
+            </AppBar>
+        </MuiThemeProvider>
+    )
+}
 
 export default Footer;

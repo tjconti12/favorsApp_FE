@@ -9,6 +9,8 @@ import "./Category.css";
 import VolunteerModal from "../VolunteerModal/VolunteerModal";
 
 const Categories = (props) => {
+
+  const [data, setData] = useState(undefined);
   const [category, setCategory] = useState({});
   const [modalOpen, setModalOpen] = useState(false);
   const history = useHistory;
@@ -70,6 +72,20 @@ const Categories = (props) => {
     },
   ];
 
+  const getData = async () => {
+    try {
+      const response = await fetch('https://gudeeds-database.herokuapp.com/tasks')
+      const data = await response.json();
+      setData(data);
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  useEffect(() => {
+    getData()
+  }, [])
+
   // function checkCategory(tasks) {
   //   const category = tasks.filter((task) => {
   //     task.category === props.category;
@@ -83,6 +99,12 @@ const Categories = (props) => {
   //};
   //checkCategory(props.tasks);
   //}, []);
+  
+  if (data === undefined) {
+    return (
+      <h1>Loading</h1>
+    )
+  }
 
   return (
     <div>
@@ -90,24 +112,33 @@ const Categories = (props) => {
       <h2 className="category-name">
         <StoreIcon /> {props.category}
       </h2>
-      {seedData.map((data) => {
-        if (data.category === props.category) {
-          return (
-            <button className="modal-btn" onClick={() => setModalOpen(true)}>
-              <div className="category">
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-                <div className="user-deets">
-                  <p id="user-name">userName</p>
-                  <p className="task-title">{data.title}</p>
-                </div>
-                <div id="due-dates">
-                  <p>{data.dueDate}</p>
-                </div>
+      {/* {props.category.map((one) => (
+        <Link to=`/details/:${one}` >
+          <div className="category">
+            <img className="profile-pic" alt="profile image" />
+            <p> short discription? of task</p>
+          </div>
+        </Link>
+      ))} */}
+      
+
+      {data.map(task => {
+        return (
+          <button onClick={() => setModalOpen(true)}>
+            <div className="category">
+              <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+              <div className="user-deets">
+                <p id="user-name">{task.createdBy}</p>
+                <p className="task-title">{task.title}</p>
               </div>
-            </button>
-          );
-        }
+              <div id="due-dates">
+                <p>{task.dueDate.split('T')[0]}</p>
+              </div>
+            </div>
+          </button>
+        )
       })}
+      
     </div>
   );
 };

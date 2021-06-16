@@ -8,32 +8,35 @@ import Footer from "./components/Footer/Footer";
 import VolunteerModal from "./components/VolunteerModal/VolunteerModal";
 
 function App() {
-  return (
-    <div className="App">
-      <h1>Güdeeds</h1>
-      <Switch>
-        <Route path="/home">
-          <HomePage />
-        </Route>
-        <Route exact path="/">
-          <Login />
-        </Route>
-        <Route exact path="/register">
-          <Register />
-        </Route>
-        <Route exact path="/add">
-          <TaskForm />
-        </Route>
-        <Route exact path="/shopping">
-          <Category category="shopping" />
-        </Route>
-        <Route exact path="/caretaking">
-          <Category category="caretaking" />
-        </Route>
-      </Switch>
-      <Footer />
-    </div>
-  );
+	return (
+		<div className='App'>
+			<h1>Güdeeds</h1>
+			<Switch>
+				<Route path='/home'>
+					<HomePage />
+				</Route>
+				<Route exact path='/'>
+					<Login />
+				</Route>
+				<Route path='/register'>
+					<Register />
+				</Route>
+				<Route exact path='/add'>
+					<TaskForm />
+				</Route>
+				<Route exact path='/shopping'>
+					<Category category='shopping' />
+				</Route>
+				<Route exact path='/caretaking'>
+					<Category category='caretaking' />
+				</Route>
+				<Route exact path='/details'>
+					<Details />
+				</Route>
+			</Switch>
+			<Footer />
+		</div>
+	)
 }
 
 export default App;
