@@ -1,0 +1,86 @@
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 328px;
+    height: 541px;
+    border: 2px solid #000;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.xButton {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+}
+
+.modalTitle {
+    font-size: 24px;
+    text-align: center;
+}
+
+.name {
+    text-align: center;
+    /* border: 2px solid red; */
+    margin-bottom: 2px;
+}
+
+.title {
+    text-align: center;
+    /* border: 2px solid red; */
+    margin-top: 0px;
+}
+
+.tealContainer {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.time, .category {
+    height: 36px;
+    width: 140px;
+    border: 1px solid rgba(0,0,0,0.12);
+    border-radius: 4px;
+    background-color: #03DAC5;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: white;
+}
+
+.description {
+    width: 277px;
+    height: 245px;
+    border: 1px solid rgba(0,0,0,0.12);
+    border-radius: 16px;
+    margin: 10px auto;
+    padding: 16px;
+    font-size: 18px;
+}
+
+.buttonContainer {
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 auto;
+}
+
+.cancel {
+    color: #6200EE;
+    background: none;
+    border: none;
+}
+
+.accept {
+    background-color: #6200EE;
+    color: white;
+    width: 73px;
+    height: 36px;
+}
