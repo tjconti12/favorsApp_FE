@@ -1,6 +1,10 @@
 h1 {
   text-align: center;
 }
+.modal-btn {
+  background-color: transparent;
+  border: none;
+}
 .category {
   margin: 25px;
   width: 284px;

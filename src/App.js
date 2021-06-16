@@ -1,12 +1,11 @@
-import { Route, Switch } from 'react-router-dom'
-import Login from './components/Login/Login'
-import Register from './components/Register/Register'
-import HomePage from './components/HomePage/HomePage'
-import TaskForm from './components/TaskForm/TaskForm'
-import Category from './components/CategoryPage/Category'
-import Details from './components/DetailsPage/Details'
-import Footer from './components/Footer/Footer'
-import VolunteerModal from './components/VolunteerModal/VolunteerModal'
+import { Route, Switch } from "react-router-dom";
+import Login from "./components/Login/Login";
+import Register from "./components/Register/Register";
+import HomePage from "./components/HomePage/HomePage";
+import TaskForm from "./components/TaskForm/TaskForm";
+import Category from "./components/CategoryPage/Category";
+import Footer from "./components/Footer/Footer";
+import VolunteerModal from "./components/VolunteerModal/VolunteerModal";
 
 function App() {
 	return (
@@ -40,4 +39,4 @@ function App() {
 	)
 }
 
-export default App
+export default App;

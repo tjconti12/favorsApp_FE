@@ -1,42 +1,42 @@
 .title {
-    text-align: center;
+  text-align: center;
 }
 
 .form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 60vh;
 }
 
 .type {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
 }
 
 .select {
-    width: 70vw;
-    height: 30px;
+  width: 70vw;
+  height: 30px;
 }
 
 .date {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
 }
 
 .datePicker {
-    width: 70vw;
-    height: 30px;
+  width: 70vw;
+  height: 30px;
 }
 
 .details {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .textBox {
-    width: 70vw;
-    height: 100px;
+  width: 70vw;
+  height: 100px;
 }
