@@ -24,13 +24,13 @@ const HomePage = ({ setAddModalOpen }) => {
                     <div className={HomePageStyles.task}><span>SHOPPING</span><StoreIcon/></div>
                 </Link>
                 <Link to="/caretaking" className={HomePageStyles.link}>
-                    <div className={HomePageStyles.task}><span>Caretaking</span><ChildFriendlyIcon/></div>
+                    <div className={HomePageStyles.task}><span>CARETAKING</span><ChildFriendlyIcon/></div>
                 </Link>
                 <Link to="/cleaning" className={HomePageStyles.link}>
-                    <div className={HomePageStyles.task}><span>Cleaning</span><BrushIcon/></div>
+                    <div className={HomePageStyles.task}><span>CLEANING</span><BrushIcon/></div>
                 </Link>
                 <Link to="/transportation" className={HomePageStyles.link}>
-                    <div className={HomePageStyles.task}><span>Transportation</span><DirectionsCarIcon/></div>
+                    <div className={HomePageStyles.task}><span>TRANSPORTATION</span><DirectionsCarIcon/></div>
                 </Link>
             </div>
         </div>
