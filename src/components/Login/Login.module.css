@@ -11,13 +11,13 @@
 .logo {
   position: relative;
   top: 10px;
-  width: 60%;
-  height: 80px;
+  width: 35%;
+  height: 250%;
 }
 
 .form {
   position: relative;
-  top: 125px;
+  top: 135px;
 }
 
 .createText {
@@ -28,12 +28,12 @@
   letter-spacing: 1.25px;
   height: 16px;
   position: relative;
-  top: 70px;
+  top: 60px;
 }
 
 .or {
   background: #03DAC5;
-  width: 60%;
+  width: 35%;
   margin: 20px;
 }
 
@@ -66,5 +66,23 @@
   border-radius: 4px;
   background-color: #6200EE;
   position: relative;
-  top: 150px;
+  top: 130px;
 }
+
+@media only screen and (max-width: 600px) {
+  .logo {
+    position: relative;
+    top: 10px;
+    width: 55%;
+    height: 150%;
+  }
+
+  .form {
+    top: 106px;
+  }
+
+  .or {
+    width: 55%;
+  }
+}
+
