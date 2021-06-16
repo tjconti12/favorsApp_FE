@@ -29,7 +29,6 @@ function App() {
           <Details />
         </Route>
       </Switch>
-      <VolunteerModal />
       <Footer />
     </div>
   );
