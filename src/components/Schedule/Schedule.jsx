@@ -1,10 +1,10 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState, useHistory } from "react";
+import { Link,Redirect } from "react-router-dom";
 import { Avatar } from "@material-ui/core";
 import Divider from "@material-ui/core/Divider";
-import { useEffect, useState, useHistory } from "react";
 import "./Schedule.css";
-const Schedule = () => {
+
+const Schedule = ({loggedIn}) => {
   const [data, setData] = useState(undefined);
   const [userReqs, setUserReqs] = useState([]);
   const [userOffers, setUserOffers] = useState([]);
@@ -36,6 +36,8 @@ const Schedule = () => {
     getData();
     console.log(data);
   }, []);
+
+  if (!loggedIn) return <Redirect to="/" />
 
   return (
     <div>
