@@ -46,6 +46,12 @@ const theme = createMuiTheme({
         },
       },
     },
+    MuiSvgIcon: {
+        root: {
+            "paddingRight": "0",
+            "transform": "translateY(-9%)",
+        }
+    }
   },
 });
 
