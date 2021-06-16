@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Route, Switch } from "react-router-dom";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
@@ -8,12 +9,18 @@ import Footer from "./components/Footer/Footer";
 import VolunteerModal from "./components/VolunteerModal/VolunteerModal";
 import Profile from "./components/Profile/Profile";
 import Schedule from "./components/Schedule/Schedule";
+
+
 function App() {
+  const [addModalOpen, setAddModalOpen] = useState(false);
+
+
+
   return (
     <div className="App">
       <Switch>
         <Route exact path="/home">
-          <HomePage />
+          <HomePage setAddModalOpen={setAddModalOpen} />
         </Route>
         <Route exact path="/">
           <Login />
@@ -21,9 +28,9 @@ function App() {
         <Route path="/register">
           <Register />
         </Route>
-        <Route exact path="/add">
+        {/* <Route exact path="/add">
           <TaskForm />
-        </Route>
+        </Route> */}
         <Route exact path="/shopping">
           <Category category="shopping" />
         </Route>
@@ -40,7 +47,8 @@ function App() {
           <Details />
         </Route> */}
       </Switch>
-      <Footer />
+      <Footer setAddModalOpen={setAddModalOpen}/>
+      {addModalOpen ? <TaskForm setAddModalOpen={setAddModalOpen}/> : <></>}
     </div>
   );
 }
