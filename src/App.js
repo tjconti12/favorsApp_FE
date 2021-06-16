@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Route, Switch } from 'react-router-dom'
+
 import Login from './components/Login/Login'
 import Register from './components/Register/Register'
 import HomePage from './components/HomePage/HomePage'
@@ -26,9 +27,6 @@ function App() {
 				<Route path='/register'>
 					<Register />
 				</Route>
-				{/* <Route exact path="/add">
-          <TaskForm />
-        </Route> */}
 				<Route exact path='/shopping'>
 					<Category loggedIn={loggedIn} category='shopping' />
 				</Route>
@@ -52,7 +50,11 @@ function App() {
         </Route> */}
 			</Switch>
 			<Footer setAddModalOpen={setAddModalOpen} />
-			{addModalOpen ? <TaskForm setAddModalOpen={setAddModalOpen} /> : <></>}
+			{addModalOpen ? (
+				<TaskForm loggedIn={loggedIn} setAddModalOpen={setAddModalOpen} />
+			) : (
+				<></>
+			)}
 		</div>
 	)
 }
