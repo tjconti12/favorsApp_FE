@@ -1,6 +1,6 @@
 import React from "react";
 import Divider from "@material-ui/core/Divider";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { Avatar } from "@material-ui/core";
 import * as HomePageStyles from "../HomePage/HomePage.module.css";
 import { makeStyles } from "@material-ui/core/styles";
@@ -8,7 +8,14 @@ import AddIcon from "@material-ui/icons/Add";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import "./Profile.css";
 
-const Profile = () => {
+const Profile = ({loggedIn, setLoggedIn}) => {
+  const handleLogOut = (e) => {
+    e.preventDefault()
+
+    window.localStorage.clear()
+    setLoggedIn(false)
+  }
+
   const useStyles = makeStyles((theme) => ({
     root: {
       display: "flex",
@@ -28,9 +35,11 @@ const Profile = () => {
 
   const classes = useStyles();
 
+  if (!loggedIn) return <Redirect to='/' />
+
   return (
     <div>
-      <button className="prof-logout">
+      <button className="prof-logout" onClick={handleLogOut}>
         <ExitToAppIcon id="logout-icon" />
         <br />
         <span>LOG OUT</span>

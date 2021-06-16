@@ -56,3 +56,6 @@
 #logout-icon {
   font-size: 40px;
 }
+.prof-logout {
+  cursor: pointer;
+}

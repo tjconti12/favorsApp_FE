@@ -19,7 +19,7 @@ function App() {
 		<div className='App'>
 			<Switch>
 				<Route exact path='/home'>
-					<HomePage setAddModalOpen={setAddModalOpen} />
+					<HomePage loggedIn={loggedIn} setAddModalOpen={setAddModalOpen} />
 				</Route>
 				<Route exact path='/'>
 					<Login setLoggedIn={setLoggedIn} />
