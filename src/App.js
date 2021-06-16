@@ -10,9 +10,9 @@ function App() {
   return (
     <div className="App">
       <h1>Güdeeds</h1>
-      <Link to="/">Home</Link>
+      {/* <Link to="/">Home</Link>
       <Link to="/schedule">My Schedule</Link>
-      <Link to="/add">Add Task</Link>
+      <Link to="/add">Add Task</Link> */}
       <Switch>
         <Route exact path="/">
           <HomePage />
