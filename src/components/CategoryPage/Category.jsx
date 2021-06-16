@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useEffect, useState, useHistory } from "react";
+import StoreIcon from "@material-ui/icons/Store";
+import { Avatar } from "@material-ui/core";
 import "./Category.css";
 const Categories = (props) => {
   const [category, setCategory] = useState({});
@@ -22,7 +24,9 @@ const Categories = (props) => {
 
   return (
     <div>
-      <h2 className="category-name">{props.category}</h2>
+      <h2 className="category-name">
+        <StoreIcon /> {props.category}
+      </h2>
       {/* {props.category.map((one) => (
         <Link to=`/details/:${one}` >
           <div className="category">
@@ -31,26 +35,18 @@ const Categories = (props) => {
           </div>
         </Link>
       ))} */}
+
       <Link to="/details" className="category-link">
         <div className="category">
+          <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
           <div className="user-deets">
-            <img className="profile-pic" />
-            <p>userName</p>
+            <p id="user-name">userName</p>
+            <p className="task-title"> Task Title</p>
           </div>
-          <p className="task-description"> Task Title</p>
-        </div>
-      </Link>
-      <Link to="/details" className="category-link">
-        <div className="category">
-          <div className="user-deets">
-            <img className="profile-pic" />
-            <p>userName</p>
+          <div id="due-dates">
+            <p>due date</p>
           </div>
-          <p className="task-description"> Task Title</p>
         </div>
-      </Link>
-      <Link to="/">
-        <button>Back</button>
       </Link>
     </div>
   );
