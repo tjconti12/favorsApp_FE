@@ -1,56 +1,94 @@
-import { useState } from 'react';
-import { createMuiTheme, makeStyles, MuiThemeProvider } from '@material-ui/core/styles';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import HomeIcon from '@material-ui/icons/Home';
-import DynamicFeedIcon from '@material-ui/icons/DynamicFeed';
-import AccountBoxIcon from '@material-ui/icons/AccountBox';
-import AddIcon from '@material-ui/icons/Add';
-import * as FooterStyles from './Footer.module.css';
+import {
+  createMuiTheme,
+  makeStyles,
+  MuiThemeProvider,
+} from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
+import DynamicFeedIcon from "@material-ui/icons/DynamicFeed";
+import PersonOutlineOutlinedIcon from "@material-ui/icons/PersonOutlineOutlined";
+import AddIcon from "@material-ui/icons/Add";
+import Toolbar from "@material-ui/core/Toolbar";
+import IconButton from "@material-ui/core/IconButton";
+// import * as FooterStyles from './Footer.module.css';
+import Fab from "@material-ui/core/Fab";
+import { Link as RouterLink } from "react-router-dom";
 
-const useStyles = makeStyles({
-    root: {
-        backgroundColor: "#6200EE",
+const useStyles = makeStyles((theme) => ({
+  root: {
+    backgroundColor: "#6200EE",
+
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
+  },
+  taskButton: {
+    transform: "translate(530%, -47%)",
+    position: "absolute",
+    backgroundColor: "#03DAC5",
+  },
+  bar: {
+    position: "fixed",
+    bottom: "0",
+  },
+}));
+
+const theme = createMuiTheme({
+  overrides: {
+    MuiBottomNavigationAction: {
+      root: {
+        "&$selected": {
+          color: "white",
+        },
+      },
     },
-    label: {
-        color: "gray",
-    },
-  });
-
-  const theme = createMuiTheme({
-      overrides: {
-          MuiBottomNavigationAction: {
-              root: {
-                "&$selected": {
-                    color: "white"
-                },
-              }
-          }
-      }
-  })
-
+  },
+});
 
 const Footer = () => {
-    const classes = useStyles();
-    const [value, setValue] = useState(0);
+  const classes = useStyles();
 
-    return (
-        <MuiThemeProvider theme={theme}>
-            <BottomNavigation
-                value={value}
-                onChange={(event, newValue) => {
-                    setValue(newValue)
-                }}    
-                showLabels
-                className={classes.root}
-            >
-            <BottomNavigationAction selected label="Home" className={classes.label} icon={<HomeIcon />} />
-            <BottomNavigationAction label="Schedule" className={classes.label} icon={<DynamicFeedIcon />} />
-            <BottomNavigationAction label="Profile" className={classes.label} icon={<AccountBoxIcon />} />
-            <BottomNavigationAction label="Add" className={classes.label} icon={<AddIcon />} />
-            </BottomNavigation>
-        </MuiThemeProvider>
-    )
-}
+  return (
+    <MuiThemeProvider theme={theme}>
+      <AppBar position="static" className={classes.bar}>
+        <Toolbar className={classes.root}>
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="menu"
+            component={RouterLink}
+            to="/"
+          >
+            <HomeOutlinedIcon />
+          </IconButton>
+          <IconButton
+            className={classes.menuButton}
+            color="inherit"
+            component={RouterLink}
+            to="/schedule"
+          >
+            <DynamicFeedIcon />
+          </IconButton>
+          <IconButton
+            className={classes.menuButton}
+            color="inherit"
+            component={RouterLink}
+            to="/profile"
+          >
+            <PersonOutlineOutlinedIcon />
+          </IconButton>
+          <Fab className={classes.taskButton} component={RouterLink} to="/add">
+            <AddIcon />
+          </Fab>
+        </Toolbar>
+      </AppBar>
+    </MuiThemeProvider>
+  );
+};
 
-export default Footer
+export default Footer;
