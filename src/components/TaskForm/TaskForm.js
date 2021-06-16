@@ -55,7 +55,7 @@ const TaskForm = () => {
 						id='dueDate'
 						type='datetime-local'
 						className={TaskFormStyles.datePicker}
-						defaultValue={'2021-06-15T10:30'}
+						required
 					/>
 				</div>
 				<div className={TaskFormStyles.details}>
