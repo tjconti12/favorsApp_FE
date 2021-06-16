@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Redirect } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import axios from 'axios'
 import ENDPOINT from '../../config/config'
 
@@ -21,7 +21,7 @@ const Register = () => {
 	}
 
 	if (redirect) {
-		return <Redirect to='/login' />
+		return <Redirect to='/' />
 	}
 
 	return (
@@ -52,6 +52,9 @@ const Register = () => {
 					<button type='submit'>Register</button>
 				</center>
 			</form>
+			<Link to='/'>
+				<button>Log In</button>
+			</Link>
 		</div>
 	)
 }
