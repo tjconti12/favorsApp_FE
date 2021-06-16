@@ -5,7 +5,7 @@ import ENDPOINT from '../../config/config'
 
 const Login = () => {
 	const [redirect, setRedirect] = useState(false)
-    
+
 	const url = ENDPOINT + '/users/login'
 
 	const handleSubmit = (e) => {
@@ -18,7 +18,9 @@ const Login = () => {
 
 		axios
 			.post(url, data)
-			.then((res) => localStorage.setItem('user', res.data))
+			.then((res) =>
+				window.localStorage.setItem('user', JSON.stringify(res.data))
+			)
 			.then(() => setRedirect(true))
 	}
 
