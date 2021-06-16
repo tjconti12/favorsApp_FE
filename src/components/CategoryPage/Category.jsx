@@ -9,136 +9,74 @@ import "./Category.css";
 import VolunteerModal from "../VolunteerModal/VolunteerModal";
 
 const Categories = (props) => {
-
   const [data, setData] = useState(undefined);
-  const [category, setCategory] = useState({});
+  const [category, setCategory] = useState([]);
+  const [selected, setSelected] = useState({});
+ 
+
   const [modalOpen, setModalOpen] = useState(false);
   const history = useHistory;
   const categoryIcons = [StoreIcon, ChildFriendlyIcon, DirectionsCarIcon];
-  const seedData = [
-    {
-      category: "shopping",
-      title: "Please Buy Me Milk",
-      description:
-        "I need milk from Safeway, if someone could please grab some for me today.",
-      creationDate: "6/16/2021 9:00AM",
-      dueDate: "6/16/2021 3:00PM",
-      completed: false,
-    },
-    {
-      category: "shopping",
-      title: "Please Buy Me Milk",
-      description:
-        "I need milk from Safeway, if someone could please grab some for me today.",
-      creationDate: "6/16/2021 9:00AM",
-      dueDate: "6/16/2021 3:00PM",
-      completed: false,
-    },
-    {
-      category: "cleaning",
-      title: "Clean the house",
-      description:
-        "I am looking for someone who can come clean my home twice a week.",
-      creationDate: "6/12/2021 7:00AM",
-      dueDate: "6/20/2021 5:00PM",
-      completed: false,
-    },
-    {
-      category: "caretaking",
-      title: "Can anyone babysit this Friday night?",
-      description:
-        "I need a babysitter from 5:00PM till possibly midnight! You will be compensated.",
-      creationDate: "6/16/2021 9:00AM",
-      dueDate: "6/18/2021 3:00PM",
-      completed: false,
-    },
-    {
-      category: "cleaning",
-      title: "Clean the house",
-      description:
-        "I am looking for someone who can come clean my home twice a week.",
-      creationDate: "6/12/2021 7:00AM",
-      dueDate: "6/20/2021 5:00PM",
-      completed: false,
-    },
-    {
-      category: "caretaking",
-      title: "Can anyone babysit this Friday night?",
-      description:
-        "I need a babysitter from 5:00PM till possibly midnight! You will be compensated.",
-      creationDate: "6/16/2021 9:00AM",
-      dueDate: "6/18/2021 3:00PM",
-      completed: false,
-    },
-  ];
+  
 
   const getData = async () => {
     try {
-      const response = await fetch('https://gudeeds-database.herokuapp.com/tasks')
+      const response = await fetch(
+        "https://gudeeds-database.herokuapp.com/tasks"
+      );
       const data = await response.json();
       setData(data);
+      let results = [];
+      data.map((tasks) => {
+        if (tasks.type === props.category) {
+          results.push(tasks);
+        }
+      });
+      setCategory(results);
+      console.log(category);
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
-  }
+  };
 
   useEffect(() => {
-    getData()
-  }, [])
+    getData();
+  }, []);
 
-  // function checkCategory(tasks) {
-  //   const category = tasks.filter((task) => {
-  //     task.category === props.category;
-  //   });
-  //   return setCategory(category);
-  // }
-
-  //useEffect(() => {
-  //const fetchTasks = async () => {
-  //const category = await getTasks();
-  //};
-  //checkCategory(props.tasks);
-  //}, []);
-  
-  if (data === undefined) {
-    return (
-      <h1>Loading</h1>
-    )
+  if (data === undefined || category === undefined) {
+    return <h1>Loading</h1>;
   }
 
   return (
     <div>
-      {modalOpen ? <VolunteerModal setModalOpen={setModalOpen} /> : <></>}
+      {modalOpen ? <VolunteerModal setModalOpen={setModalOpen} selected={selected} category={props.category}/> : <></>}
       <h2 className="category-name">
         <StoreIcon /> {props.category}
       </h2>
-      {/* {props.category.map((one) => (
-        <Link to=`/details/:${one}` >
-          <div className="category">
-            <img className="profile-pic" alt="profile image" />
-            <p> short discription? of task</p>
-          </div>
-        </Link>
-      ))} */}
-      
 
-      {data.map(task => {
-        return (
-          <button onClick={() => setModalOpen(true)}>
-            <div className="category">
-              <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-              <div className="user-deets">
-                <p id="user-name">{task.createdBy}</p>
-                <p className="task-title">{task.title}</p>
+      {category.length !== 0 ? (
+        category.map((task) => {
+          return (
+            <button className="modal-btn" onClick={() => {
+              setModalOpen(true)
+              setSelected(task) 
+            }}>
+              <div className="category">
+                <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                <div className="user-deets">
+                  <p id="user-name">{task.createdBy}</p>
+                  <p className="task-title">{task.title}</p>
+                </div>
+                <div id="due-dates">
+                  <p>{task.dueDate.split("T")[0]}</p>
+                </div>
               </div>
-              <div id="due-dates">
-                <p>{task.dueDate.split('T')[0]}</p>
-              </div>
-            </div>
-          </button>
-        )
-      })}
-      
+            </button>
+          );
+        })
+      ) : (
+        <p>No Current Requests</p>
+      )}
     </div>
   );
 };

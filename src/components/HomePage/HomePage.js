@@ -6,7 +6,7 @@ import ChildFriendlyIcon from '@material-ui/icons/ChildFriendly';
 import BrushIcon from '@material-ui/icons/Brush';
 import DirectionsCarIcon from '@material-ui/icons/DirectionsCar';
 
-const HomePage = () => {
+const HomePage = ({ setAddModalOpen }) => {
     return (
         <div className={HomePageStyles.container}>
             <Link to="/schedule" className={HomePageStyles.link}>
@@ -14,9 +14,9 @@ const HomePage = () => {
             </Link>
             <div>
                 <h2 className={HomePageStyles.h2}>Ask for help</h2>
-                <Link to="/add" className={HomePageStyles.link}>
+                <div className={HomePageStyles.link} onClick={() => setAddModalOpen(true)}>
                     <div className={HomePageStyles.teal}><AddIcon/><span>ADD A TASK</span></div>
-                </Link>
+                </div>
             </div>
             <div>
                 <h2 className={HomePageStyles.h2}>Offer help</h2>
@@ -24,13 +24,13 @@ const HomePage = () => {
                     <div className={HomePageStyles.task}><span>SHOPPING</span><StoreIcon/></div>
                 </Link>
                 <Link to="/caretaking" className={HomePageStyles.link}>
-                    <div className={HomePageStyles.task}><span>Caretaking</span><ChildFriendlyIcon/></div>
+                    <div className={HomePageStyles.task}><span>CARETAKING</span><ChildFriendlyIcon/></div>
                 </Link>
                 <Link to="/cleaning" className={HomePageStyles.link}>
-                    <div className={HomePageStyles.task}><span>Cleaning</span><BrushIcon/></div>
+                    <div className={HomePageStyles.task}><span>CLEANING</span><BrushIcon/></div>
                 </Link>
                 <Link to="/transportation" className={HomePageStyles.link}>
-                    <div className={HomePageStyles.task}><span>Transportation</span><DirectionsCarIcon/></div>
+                    <div className={HomePageStyles.task}><span>TRANSPORTATION</span><DirectionsCarIcon/></div>
                 </Link>
             </div>
         </div>
