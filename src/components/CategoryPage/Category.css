@@ -1,0 +1,28 @@
+.category {
+  border: 2px solid black;
+  margin: 20px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.category-link {
+  text-decoration: none;
+  color: black;
+}
+.category-link:visited {
+  text-decoration: none;
+  color: black;
+}
+.profile-pic {
+  border-radius: 100px;
+  border: 10px solid black;
+  width: 88px;
+  height: 88px;
+}
+.category-name {
+  text-align: center;
+}
+.task-description {
+  margin: 20px;
+}
