@@ -1,6 +1,3 @@
-const apiUrl =
-	window.location.hostname === 'localhost'
-		? 'http://localhost:3000'
-		: 'https://gudeeds-database.herokuapp.com'
+const apiUrl = "https://gudeeds-database.herokuapp.com";
 
-export default apiUrl
+export default apiUrl;

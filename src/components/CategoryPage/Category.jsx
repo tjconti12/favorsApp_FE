@@ -1,12 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { useEffect, useState, useHistory } from "react";
+import { Link ,Redirect} from "react-router-dom";
+import React,{ useEffect, useState } from "react";
 import StoreIcon from "@material-ui/icons/Store";
 import ChildFriendlyIcon from "@material-ui/icons/ChildFriendly";
 import DirectionsCarIcon from "@material-ui/icons/DirectionsCar";
 import { Avatar } from "@material-ui/core";
-import "./Category.css";
+
 import VolunteerModal from "../VolunteerModal/VolunteerModal";
+import "./Category.css";
 
 const Categories = (props) => {
   const [data, setData] = useState(undefined);
@@ -14,7 +14,6 @@ const Categories = (props) => {
   const [selected, setSelected] = useState({});
 
   const [modalOpen, setModalOpen] = useState(false);
-  const history = useHistory;
   const categoryIcons = [StoreIcon, ChildFriendlyIcon, DirectionsCarIcon];
 
   const getData = async () => {
@@ -31,7 +30,6 @@ const Categories = (props) => {
         }
       });
       setCategory(results);
-      console.log(category);
     } catch (error) {
       console.error(error);
     }
@@ -44,6 +42,8 @@ const Categories = (props) => {
   if (data === undefined || category === undefined) {
     return <h1>Loading</h1>;
   }
+
+   if (!props.loggedIn) return <Redirect to='/' />
 
   return (
     <div>

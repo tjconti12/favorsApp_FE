@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Route, Switch } from "react-router-dom";
+
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import HomePage from "./components/HomePage/HomePage";
@@ -11,6 +12,7 @@ import Profile from "./components/Profile/Profile";
 import Schedule from "./components/Schedule/Schedule";
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
   const [addModalOpen, setAddModalOpen] = useState(false);
 
   return (
@@ -20,38 +22,39 @@ function App() {
           <HomePage setAddModalOpen={setAddModalOpen} />
         </Route>
         <Route exact path="/">
-          <Login />
+          <Login setLoggedIn={setLoggedIn} />
         </Route>
         <Route path="/register">
           <Register />
         </Route>
-        {/* <Route exact path="/add">
-          <TaskForm />
-        </Route> */}
         <Route exact path="/shopping">
-          <Category category="shopping" />
+          <Category loggedIn={loggedIn} category="shopping" />
         </Route>
         <Route exact path="/caretaking">
-          <Category category="caretaking" />
+          <Category loggedIn={loggedIn} category="caretaking" />
         </Route>
         <Route exact path="/cleaning">
-          <Category category="cleaning" />
+          <Category loggedIn={loggedIn} category="cleaning" />
         </Route>
         <Route exact path="/transportation">
-          <Category category="transportation" />
+          <Category loggedIn={loggedIn} category="transportation" />
         </Route>
         <Route exact path="/profile">
-          <Profile />
+          <Profile loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
         </Route>
         <Route exact path="/schedule">
-          <Schedule />
+          <Schedule loggedIn={loggedIn} />
         </Route>
         {/* <Route exact path="/details">
           <Details />
         </Route> */}
       </Switch>
       <Footer setAddModalOpen={setAddModalOpen} />
-      {addModalOpen ? <TaskForm setAddModalOpen={setAddModalOpen} /> : <></>}
+      {addModalOpen ? (
+        <TaskForm loggedIn={loggedIn} setAddModalOpen={setAddModalOpen} />
+      ) : (
+        <></>
+      )}
     </div>
   );
 }

@@ -12,7 +12,7 @@ import "./Register.css";
 
 const Register = () => {
   const [redirect, setRedirect] = useState(false);
-
+  const [type, setType] = useState();
   const useStyles = makeStyles((theme) => ({
     formControl: {
       margin: theme.spacing(1),
@@ -29,7 +29,7 @@ const Register = () => {
     e.preventDefault();
 
     const data = {
-      profileIcon: e.target.profile.value,
+      // profileIcon: e.target.profile.value,
       username: e.target.username.value,
       password: e.target.password.value,
     };
@@ -38,6 +38,23 @@ const Register = () => {
 
     axios.post(url, data).then((res) => setRedirect(true));
   };
+
+  const profileIcons = [
+    {
+      name: "duck",
+      image: "https://i.imgur.com/qhET4ZS.png",
+    },
+    {
+      name: "fox",
+      image: "https://i.imgur.com/I9mE8md.png",
+    },
+    { name: "dog", image: "https://i.imgur.com/XtDL5Ku.png" },
+    { name: "elephant", image: "https://i.imgur.com/9pVLnkz.png" },
+    { name: "giraffe", image: "https://i.imgur.com/Do0e957.png" },
+    { name: "lion", image: "https://i.imgur.com/gMZXcAT.png" },
+    { name: "cat", image: "https://i.imgur.com/VT1EKbo.png" },
+    { name: "owl", image: "https://i.imgur.com/aMVMOhg.png" },
+  ];
 
   if (redirect) {
     return <Redirect to="/login" />;
@@ -52,12 +69,14 @@ const Register = () => {
         <center>
           <FormControl className={classes.formControl}>
             <InputLabel id="demo-simple-select-label">Profile Icon</InputLabel>
-            <Select labelId="demo-simple-select-label" id="demo-simple-select">
-              <MenuItem value="sample1" className="menu-items">
-                Sample1
-              </MenuItem>
-              <MenuItem value="sample2">Sample2</MenuItem>
-              <MenuItem value="sample3">Sample 3</MenuItem>
+            <Select
+              onChange={(e) => setType(e.target.value)}
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+            >
+              {profileIcons.map((pic) => {
+                return <MenuItem value={pic.image}>{pic.name}</MenuItem>;
+              })}
             </Select>
           </FormControl>
         </center>

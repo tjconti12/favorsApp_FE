@@ -39,8 +39,10 @@ const Profile = () => {
       <section className="profile-header">
         <Avatar className={classes.large}>S</Avatar>
         <p id="profile-username">Sabrina</p>
-        <p id="gudeeds-rate">Gudeeds Rating</p>
-        <p id="profile-bio">Bio Information</p>
+        <p id="gudeeds-rate"> 6 Gudeeds</p>
+        <p id="profile-bio">
+          Mom of two, dog owner, and currently working from home.
+        </p>
       </section>
 
       <section className="profile-request-sec">
@@ -48,13 +50,15 @@ const Profile = () => {
         <Divider id="divider" variant="middle" />
 
         <div className="category">
-          <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+          <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg">
+            S
+          </Avatar>
           <div className="user-deets">
-            <p id="user-name">userName</p>
-            <p className="task-title">Title</p>
+            <p id="user-name">Sabrina</p>
+            <p className="task-title">Buy milk</p>
           </div>
           <div id="due-dates">
-            <p>dueDate</p>
+            <p>6/14,10AM</p>
           </div>
         </div>
 
