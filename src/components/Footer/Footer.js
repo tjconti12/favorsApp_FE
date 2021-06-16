@@ -49,7 +49,7 @@ const theme = createMuiTheme({
   },
 });
 
-const Footer = () => {
+const Footer = ({ setAddModalOpen }) => {
   const classes = useStyles();
 
     return (
@@ -78,7 +78,8 @@ const Footer = () => {
                     </IconButton>
                     <Fab 
                         className={classes.taskButton}
-                        component={RouterLink} to="/add">
+                        // component={RouterLink} to="/add">
+                        onClick={()=> setAddModalOpen(true)}>
                         <AddIcon />
                     </Fab>
                 </Toolbar>

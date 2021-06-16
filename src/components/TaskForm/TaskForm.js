@@ -5,7 +5,7 @@ import ENDPOINT from "../../config/config";
 
 import * as TaskFormStyles from "./TaskForm.module.css";
 
-const TaskForm = () => {
+const TaskForm = ({ setAddModalOpen }) => {
   const [type, setType] = useState("shopping");
   const [redirect, setRedirect] = useState(false);
   const [tasks, setTasks] = useState([]);
@@ -14,7 +14,7 @@ const TaskForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    setAddModalOpen(false)
     const data = {
       type: e.target.type.value,
       title: e.target.title.value,
@@ -36,7 +36,7 @@ const TaskForm = () => {
   }
 
   return (
-    <div>
+    <div className={TaskFormStyles.modal}>
       <h2 className={TaskFormStyles.title}>Add Event</h2>
       <form className={TaskFormStyles.form} onSubmit={handleSubmit}>
         <div className={TaskFormStyles.type}>
@@ -75,6 +75,11 @@ const TaskForm = () => {
         </div>
         <input type="submit" />
       </form>
+      <button type="button" 
+        onClick={() => setAddModalOpen(false)} 
+        className={TaskFormStyles.xButton}
+        >X
+      </button>
     </div>
   );
 };
