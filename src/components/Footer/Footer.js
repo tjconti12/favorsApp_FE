@@ -27,6 +27,8 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   taskButton: {
+    display: "flex",
+    alignSelf: "right",
     transform: "translate(530%, -47%)",
     position: "absolute",
     backgroundColor: "#03DAC5",

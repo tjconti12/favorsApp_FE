@@ -48,7 +48,7 @@ const Login = ({ setLoggedIn }) => {
 				</center>
 				<br />
 				<center>
-					<label htmlFor='password'>Password:</label>
+					<label className={LoginStyles.password} htmlFor='password'>Password:</label>
 					<input id='password' className='login-field' type='password' />
 				</center>
 				<center>
