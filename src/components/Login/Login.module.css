@@ -68,3 +68,27 @@
   position: relative;
   top: 150px;
 }
+
+@media screen and (min-width: 600px) {
+  .logo {
+    width: 45%;
+    height: auto;
+  }
+
+}
+
+@media screen and (min-width: 720px) {
+  .logo {
+    width: 35%;
+    height: auto;
+  }
+
+}
+
+@media screen and (min-width: 960px) {
+  .logo {
+    width: 20%;
+    height: auto;
+  }
+
+}
