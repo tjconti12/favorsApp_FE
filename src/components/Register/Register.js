@@ -1,17 +1,22 @@
 import { useState } from 'react'
 import { Redirect } from 'react-router-dom'
-import axios from 'axios'
-import ENDPOINT from '../../config/config'
 import Select from '@material-ui/core/Select'
 import InputLabel from '@material-ui/core/InputLabel'
 import { makeStyles } from '@material-ui/core/styles'
 import FormControl from '@material-ui/core/FormControl'
+import FormHelperText from '@material-ui/core/FormHelperText'
 import OutlinedInput from '@material-ui/core/OutlinedInput'
 import MenuItem from '@material-ui/core/MenuItem'
+import axios from 'axios'
+
+import ENDPOINT from '../../config/config'
 import './Register.css'
 
 const Register = () => {
 	const [redirect, setRedirect] = useState(false)
+	const [profileIcon, setProfileIcon] = useState('')
+	const [usernameError, setUsernameError] = useState(false)
+
 	const useStyles = makeStyles((theme) => ({
 		formControl: {
 			margin: theme.spacing(1),
@@ -28,14 +33,17 @@ const Register = () => {
 		e.preventDefault()
 
 		const data = {
-			profileIcon: e.currentTarget.dataset,
+			profileIcon,
 			username: e.target.username.value,
 			password: e.target.password.value,
 		}
 
 		const url = ENDPOINT + '/users/register'
 
-		axios.post(url, data).then((res) => setRedirect(true))
+		axios
+			.post(url, data)
+			.then((res) => setRedirect(true))
+			.catch(() => setUsernameError(true))
 	}
 
 	const profileIcons = [
@@ -94,26 +102,42 @@ const Register = () => {
 				<center>
 					<FormControl className={classes.formControl}>
 						<InputLabel htmlFor='profileIcon'>Profile Icon</InputLabel>
-						<Select id='profileIcon' required>
-							{profileIcons.map((pic) => {
-								return (
-									<MenuItem key={pic.id} data-profile-icon value={pic.image}>
-										{pic.name}
-									</MenuItem>
-								)
-							})}
+						<Select
+							defaultValue=''
+							onChange={(e) => setProfileIcon(e.target.value)}
+							required>
+							{profileIcons.map((pic) => (
+								<MenuItem key={pic.id} value={pic.name}>
+									{pic.name}
+								</MenuItem>
+							))}
 						</Select>
 					</FormControl>
 				</center>
 				<center>
 					<FormControl variant='outlined'>
 						<InputLabel htmlFor='username'>Username</InputLabel>
-						<OutlinedInput
-							id='username'
-							className='register-field'
-							type='text'
-							label='username'
-						/>
+						{usernameError ? (
+							<OutlinedInput
+								id='username'
+								className='register-field'
+								type='text'
+								label='username'
+								error
+							/>
+						) : (
+							<OutlinedInput
+								id='username'
+								className='register-field'
+								type='text'
+								label='username'
+							/>
+						)}
+						{usernameError && (
+							<FormHelperText error id='username-error'>
+								Username already exists
+							</FormHelperText>
+						)}
 					</FormControl>
 				</center>
 				<br />
@@ -128,7 +152,6 @@ const Register = () => {
 						/>
 					</FormControl>
 				</center>
-
 				<center>
 					<br />
 					<button id='register' type='submit'>
